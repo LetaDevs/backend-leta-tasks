@@ -1,0 +1,17 @@
+doctype html
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=	, initial-scale=1.0")
+    
+  body 
+    h2 hola #{usuario.nombre}
+
+    p para confirmar tu cuenta haz click en el siguiente enlace: 
+    a(href=`${url}`) activar cuenta
+
+    hr
+    p si no puedes activar tu cuenta desde el enlace de arriba, copia y pega este link en tu navegador: 
+
+    a(href=`${url}`) #{url}
