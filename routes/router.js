@@ -8,6 +8,7 @@ import {
 	validarTokenResetPassword,
 } from '../controllers/usersController.js';
 import {iniciarSesion} from '../controllers/authController.js';
+import auth from '../midlewares/auth.js';
 
 const router = express.Router();
 
