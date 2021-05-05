@@ -55,3 +55,29 @@ Los campos **email** y **password** son requeridos en el body del request.
 Al enviar un **POST** a este endpoint se validará que el email ingresado esté registrado y que el password pertenezca a dicho email, si la validación es correcta se enviará como respuesta un jwt con los datos del usuario.
 
 ---
+
+### Crear nuevo proyecto
+
+**POST** <http://referer/api/v1/proyectos/crear-proyecto>
+
+El campo **titulo** es requerido en el body del request.
+
+Al enviar un **POST** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa se procedera a crear el registro del nuevo proyecto
+
+---
+
+### Actualizar proyecto
+
+**PUT** <http://referer/api/v1/proyectos/editar-proyecto/:id>
+
+El campo **titulo** es requerido en el body del request.
+
+Al enviar un **PUT** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa se procedera a actualizar el registro del proyecto al que corresponda el id
+
+---
+
+### Eliminar proyecto
+
+**DELETE** <http://referer/api/v1/proyectos/eliminar-proyecto/:id>
+
+Al enviar un **DELETE** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa se procedera a eliminar el registro del proyecto al que corresponda el id

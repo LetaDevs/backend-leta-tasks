@@ -1,5 +1,7 @@
 import express from 'express';
 import {check} from 'express-validator';
+import auth from '../middlewares/auth.js';
+import {iniciarSesion} from '../controllers/authController.js';
 import {
 	confirmarCuenta,
 	crearCuenta,
@@ -7,8 +9,7 @@ import {
 	solicitudResetPassword,
 	validarTokenResetPassword,
 } from '../controllers/usersController.js';
-import {iniciarSesion} from '../controllers/authController.js';
-import auth from '../midlewares/auth.js';
+import {crearProyecto, editarProyecto, eliminarProyecto} from '../controllers/proyectosController.js';
 
 const router = express.Router();
 
@@ -45,5 +46,16 @@ router.post(
 	],
 	iniciarSesion
 );
+
+// ------------------------------------ PROYECTOS --------------------------------------
+
+// crear nuevo proyecto
+router.post('/api/v1/proyectos/crear-proyecto', auth, crearProyecto);
+
+//editar proyecto
+router.put('/api/v1/proyectos/editar-proyecto/:id', auth, editarProyecto);
+
+//eliminar proyecto
+router.delete('/api/v1/proyectos/eliminar-proyecto/:id', auth, eliminarProyecto);
 
 export default router;

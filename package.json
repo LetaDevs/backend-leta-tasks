@@ -19,7 +19,9 @@
     "juice": "^7.0.0",
     "mongoose": "^5.12.7",
     "nodemailer": "^6.6.0",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "shortid": "^2.2.16",
+    "slug": "^5.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
