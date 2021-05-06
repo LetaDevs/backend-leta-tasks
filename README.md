@@ -32,9 +32,9 @@ Al solicitar un reset de password, se le enviará un correo al usuario con la ur
 
 ### Validación token reset password
 
-**GET** <http://referer/reset-password/:token>
+**POST** <http://referer/api/v1/reset-password/validacion/:token>
 
-Al obtener un **GET** desde este endpoint se validará el token asociado y se le permitirá al usuario modificar el password.
+Al obtener un **POST** desde este endpoint se validará el token asociado y se le permitirá al usuario modificar el password.
 
 ---
 

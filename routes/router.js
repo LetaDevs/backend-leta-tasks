@@ -33,7 +33,7 @@ router.get('/confirmar-cuenta/:token', confirmarCuenta);
 // reestablecer password
 router.post('/api/v1/reset-password', check('email', 'Email no válido').isEmail(), solicitudResetPassword);
 // validar token de reset
-router.get('/reset-password/:token', validarTokenResetPassword);
+router.post('/api/v1/reset-password/validacion/:token', validarTokenResetPassword);
 // cambiar password
 router.post(
 	'/api/v1/reset-password/:token',
