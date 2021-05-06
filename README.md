@@ -1,5 +1,18 @@
 # Backend APP LETA-Tasks
 
+## Casos de uso:
+
+- [x] crear cuenta de usuario
+- [x] cambiar password
+- [x] iniciar sesión
+- [x] crear proyecto
+- [x] editar proyecto
+- [x] eliminar proyecto
+- [x] crear tarea
+- [x] editar tarea
+- [x] eliminar tarea
+- [x] cambiar estado tarea
+
 ## Endpoints de operación
 
 ---
