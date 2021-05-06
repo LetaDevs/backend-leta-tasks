@@ -9,9 +9,12 @@ import {
 	solicitudResetPassword,
 	validarTokenResetPassword,
 } from '../controllers/usersController.js';
-import {crearProyecto, editarProyecto, eliminarProyecto} from '../controllers/proyectosController.js';
+import {crearProyecto, editarProyecto, eliminarProyecto, obtenerProyectos} from '../controllers/proyectosController.js';
+import {cambiarEstadoTarea, crearTarea, editarTarea, eliminarTarea} from '../controllers/TareasController.js';
 
 const router = express.Router();
+
+// ------------------------------------------ USUARIOS -----------------------------------------------
 
 // crear cuenta
 router.post(
@@ -53,9 +56,26 @@ router.post(
 router.post('/api/v1/proyectos/crear-proyecto', auth, crearProyecto);
 
 //editar proyecto
-router.put('/api/v1/proyectos/editar-proyecto/:id', auth, editarProyecto);
+router.put('/api/v1/proyectos/editar-proyecto/:proyectoId', auth, editarProyecto);
 
 //eliminar proyecto
-router.delete('/api/v1/proyectos/eliminar-proyecto/:id', auth, eliminarProyecto);
+router.delete('/api/v1/proyectos/eliminar-proyecto/:proyectoid', auth, eliminarProyecto);
+
+//obtener proyectos
+router.get('/api/v1/proyectos/obtener-proyectos/:usuarioId', auth, obtenerProyectos);
+
+// ------------------------------------ TAREAS -------------------------------------------
+
+//crear tarea
+router.post('/api/v1/tareas/crear-tarea', auth, crearTarea);
+
+//editar tarea
+router.put('/api/v1/tareas/editar-tarea/:tareaId', auth, editarTarea);
+
+//eliminar tarea
+router.delete('/api/v1/tareas/eliminar-tarea/:tareaId', auth, eliminarTarea);
+
+//cambiar estado tarea
+router.patch('/api/v1/tareas/estado-tarea/:tareaId', auth, cambiarEstadoTarea);
 
 export default router;

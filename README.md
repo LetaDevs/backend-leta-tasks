@@ -26,7 +26,7 @@ Para confirmar la cuenta, se le enviará un correo al usuario con la url de conf
 
 El **email** del usuario será requerido en el body del request
 
-Al solicitar un reset de password, se le enviará un correo al usuario con la url de reset, al obtener un **GET** desde esa url se validará el token asociado a ella y se le permitirá al usuario modificar el password.
+Al solicitar un reset de password, se le enviará un correo al usuario con la url de reset, al obtener un **POST** desde esa url se validará el token asociado a ella y se le permitirá al usuario modificar el password.
 
 ---
 
@@ -68,7 +68,7 @@ Al enviar un **POST** a este endpoint se validará la sesión del usuario median
 
 ### Actualizar proyecto
 
-**PUT** <http://referer/api/v1/proyectos/editar-proyecto/:id>
+**PUT** <http://referer/api/v1/proyectos/editar-proyecto/:proyectoId>
 
 El campo **titulo** es requerido en el body del request.
 
@@ -78,6 +78,52 @@ Al enviar un **PUT** a este endpoint se validará la sesión del usuario mediant
 
 ### Eliminar proyecto
 
-**DELETE** <http://referer/api/v1/proyectos/eliminar-proyecto/:id>
+**DELETE** <http://referer/api/v1/proyectos/eliminar-proyecto/:proyectoId>
 
 Al enviar un **DELETE** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa se procedera a eliminar el registro del proyecto al que corresponda el id
+
+---
+
+### Obtener proyectos
+
+**GET** <http://referer/api/v1/proyectos/obtener-proyectos/:usuarioId>
+
+Al enviar un **GET** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa se devolverá un json con los proyectos pertenecientes a dicho usuario.
+
+---
+
+### Crear tarea
+
+**POST** <http://referer/api/v1/tareas/crear-tarea?proyectoId={id}>
+
+se espera el parámetro **proyectoId** para identificar el proyecto al que se le debe asignar la tarea que se desea crear
+
+El campo **titulo** es requerido en el body del request, el campo **descripcion** es opcional.
+
+Al enviar un **POST** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa se procederá a crear la tarea.
+
+---
+
+### Editar tarea
+
+**PUT** <http://referer/api/v1/tareas/editar-tarea/:tareaId>
+
+El campo **titulo** es requerido en el body del request, el campo **descripcion** es opcional.
+
+Al enviar un **PUT** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa y la tarea le pertenece al usuario autenticado, se procederá a actualizar la tarea.
+
+---
+
+### Eliminar tarea
+
+**DELETE** <http://referer/api/v1/tareas/eliminar-tarea/:tareaId>
+
+Al enviar un **DELETE** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa y la tarea le pertenece al usuario autenticado, se procederá a eliminar dicha tarea.
+
+---
+
+### Actualizar estado tarea
+
+**PATCH** <http://referer/api/v1/tareas/estado-tarea/:tareaId>
+
+Al enviar un **PATCH** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa y la tarea le pertenece al usuario autenticado, se procederá a cambiar el estado de dicha tarea (de true a false y veceversa).

@@ -16,6 +16,8 @@ const iniciarSesion = async (req, res) => {
 
 		if (!usuario) res.status(401).json({errors: [{msg: 'Usuario no registrado'}]});
 
+		if (!usuario.activo) res.status(401).json({errors: [{msg: 'la cuenta no ha sido activada'}]});
+
 		const validacionPassword = bcrypt.compareSync(password, usuario.password);
 
 		if (!validacionPassword) res.status(401).json({errors: [{msg: 'Password incorrecto'}]});

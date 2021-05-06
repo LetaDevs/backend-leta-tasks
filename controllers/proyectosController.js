@@ -16,10 +16,10 @@ const crearProyecto = async (req, res) => {
 };
 
 const editarProyecto = async (req, res) => {
-	const {id} = req.params;
+	const {proyectoId} = req.params;
 
 	try {
-		const proyecto = await Proyectos.findById(id);
+		const proyecto = await Proyectos.findById(proyectoId);
 
 		if (proyecto.usuarioId != req.usuario.id) {
 			return res.status(403).json({errors: [{msg: 'No tienes permiso para realizar dicha acción'}]});
@@ -35,16 +35,16 @@ const editarProyecto = async (req, res) => {
 };
 
 const eliminarProyecto = async (req, res) => {
-	const {id} = req.params;
+	const {proyectoId} = req.params;
 
 	try {
-		const proyecto = await Proyectos.findById(id);
+		const proyecto = await Proyectos.findById(proyectoId);
 
 		if (proyecto.usuarioId != req.usuario.id) {
 			return res.status(403).json({errors: [{msg: 'No tienes permiso para realizar dicha acción'}]});
 		}
 
-		await Proyectos.deleteOne({_id: id});
+		await Proyectos.deleteOne({_id: proyectoId});
 
 		res.status(200).json({msg: 'proyecto eliminado correctamente'});
 	} catch (error) {
@@ -52,4 +52,14 @@ const eliminarProyecto = async (req, res) => {
 	}
 };
 
-export {crearProyecto, editarProyecto, eliminarProyecto};
+const obtenerProyectos = async (req, res) => {
+	const {usuarioId} = req.params;
+
+	if (usuarioId != req.usuario.id) res.status(401).json({errors: [{msg: 'No autorizado'}]});
+
+	const proyectos = await Proyectos.find({usuarioId});
+
+	res.status(200).json(proyectos);
+};
+
+export {crearProyecto, editarProyecto, eliminarProyecto, obtenerProyectos};
