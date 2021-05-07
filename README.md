@@ -1,6 +1,6 @@
 # Backend APP LETA-Tasks
 
-## Casos de uso:
+## Casos de uso
 
 - [x] crear cuenta de usuario
 - [x] cambiar password
@@ -14,8 +14,6 @@
 - [x] cambiar estado tarea
 
 ## Endpoints de operación
-
----
 
 ### Crear cuenta de usuario
 
