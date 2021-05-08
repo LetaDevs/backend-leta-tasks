@@ -13,7 +13,7 @@ const crearCuenta = async (req, res) => {
 	const {email} = req.body;
 
 	const validarRegistro = await Usuarios.findOne({email});
-	if (validarRegistro) res.status(400).json({errors: [{msg: 'Email ya registrado'}]});
+	if (validarRegistro) return res.status(400).json({errors: [{msg: 'Email ya registrado'}]});
 
 	try {
 		let usuario = new Usuarios(req.body);
