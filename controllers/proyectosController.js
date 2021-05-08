@@ -9,7 +9,7 @@ const crearProyecto = async (req, res) => {
 		proyecto.usuarioId = req.usuario.id;
 
 		await proyecto.save();
-		res.status(201).json({msg: 'proyecto agregado exitosamente'});
+		res.status(201).json({code: 201, msg: 'proyecto agregado exitosamente'});
 	} catch (error) {
 		res.status(500).json({errors: [{msg: 'ocurrió un error'}]});
 	}
@@ -28,7 +28,7 @@ const editarProyecto = async (req, res) => {
 		proyecto.titulo = req.body.titulo;
 
 		await proyecto.save();
-		res.status(200).json({msg: 'proyecto actualizado correctamente'});
+		res.status(200).json({code: 200, msg: 'proyecto actualizado correctamente'});
 	} catch (error) {
 		res.status(404).json({errors: [{msg: 'proyecto no encontrado'}]});
 	}
@@ -46,7 +46,7 @@ const eliminarProyecto = async (req, res) => {
 
 		await Proyectos.deleteOne({_id: proyectoId});
 
-		res.status(200).json({msg: 'proyecto eliminado correctamente'});
+		res.status(200).json({code: 200, msg: 'proyecto eliminado correctamente'});
 	} catch (error) {
 		res.status(404).json({errors: [{msg: 'Proyecto no encontrado'}]});
 	}

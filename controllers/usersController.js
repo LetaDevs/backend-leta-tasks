@@ -32,7 +32,7 @@ const crearCuenta = async (req, res) => {
 			url,
 		});
 
-		res.status(201).json({msg: 'Usuario registrado con exito'});
+		res.status(201).json({code: 201, msg: 'Usuario registrado con exito'});
 	} catch (error) {
 		res.status(500).json({errors: [{msg: 'Ocurrió un error inesperado'}]});
 	}
@@ -50,7 +50,7 @@ const confirmarCuenta = async (req, res) => {
 
 	await usuario.save();
 
-	res.status(200).json({msg: 'Cuenta activada correctamente'});
+	res.status(200).json({code: 200, msg: 'Cuenta activada correctamente'});
 };
 
 const solicitudResetPassword = async (req, res) => {
@@ -80,7 +80,7 @@ const solicitudResetPassword = async (req, res) => {
 		url,
 	});
 
-	res.status(200).json({msg: 'se envió un correo con la url de reset'});
+	res.status(200).json({code: 200, msg: 'se envió un correo con la url de reset'});
 };
 
 const validarTokenResetPassword = async (req, res) => {
@@ -90,7 +90,7 @@ const validarTokenResetPassword = async (req, res) => {
 
 	if (!usuario) res.status(400).json({errors: [{msg: 'token no válido'}]});
 
-	res.status(200).json({msg: 'ok'});
+	res.status(200).json({code: 200, msg: 'ok'});
 };
 
 const guardarNuevoPassword = async (req, res) => {
@@ -111,7 +111,7 @@ const guardarNuevoPassword = async (req, res) => {
 
 	await usuario.save();
 
-	res.status(200).json({msg: 'ok'});
+	res.status(200).json({code: 200, msg: 'ok'});
 };
 
 export {crearCuenta, confirmarCuenta, solicitudResetPassword, validarTokenResetPassword, guardarNuevoPassword};

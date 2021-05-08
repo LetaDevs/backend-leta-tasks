@@ -14,7 +14,7 @@ const crearTarea = async (req, res) => {
 
 		await tarea.save();
 
-		res.status(201).json({msg: 'tarea agregada correctamente'});
+		res.status(201).json({code: 201, msg: 'tarea agregada correctamente'});
 	} catch (error) {
 		res.status(404).json({errors: [{msg: 'Proyecto no existente'}]});
 	}
@@ -35,7 +35,7 @@ const editarTarea = async (req, res) => {
 
 		await tarea.save();
 
-		res.status(200).json({msg: 'tarea actualizada correctamente'});
+		res.status(200).json({code: 200, msg: 'tarea actualizada correctamente'});
 	} catch (error) {
 		res.status(404).json({errors: [{msg: 'tarea no encontrada'}]});
 	}
@@ -53,7 +53,7 @@ const eliminarTarea = async (req, res) => {
 
 		await Tareas.deleteOne({_id: tareaId});
 
-		res.status(200).json({msg: 'tarea eliminada exitosamente'});
+		res.status(200).json({code: 200, msg: 'tarea eliminada exitosamente'});
 	} catch (error) {
 		res.status(404).json({errors: [{msg: 'tarea no encontrada'}]});
 	}
@@ -77,7 +77,7 @@ const cambiarEstadoTarea = async (req, res) => {
 		tarea.completa = estado;
 
 		await tarea.save();
-		res.status(200).json({msg: 'ok'});
+		res.status(200).json({code: 200, msg: 'ok'});
 	} catch (error) {
 		res.status(404).json({errors: [{msg: 'tarea no encontrada'}]});
 	}
