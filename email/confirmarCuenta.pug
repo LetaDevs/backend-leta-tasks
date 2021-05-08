@@ -4,14 +4,13 @@ html(lang="es")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=	, initial-scale=1.0")
-    
+    style 
+      include ./styles.css
   body 
     h2 hola #{usuario.nombre}
 
-    p para confirmar tu cuenta haz click en el siguiente enlace: 
+    p para confirmar tu cuenta haz click en el siguiente enlace, e ingresa el token en el formulario de confirmación: 
     a(href=`${url}`) activar cuenta
 
-    hr
-    p si no puedes activar tu cuenta desde el enlace de arriba, copia y pega este link en tu navegador: 
-
-    a(href=`${url}`) #{url}
+    p token: 
+      span.token #{token}
