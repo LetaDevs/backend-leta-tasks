@@ -6,12 +6,13 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon app.js",
-    "start" : "node app.js"
+    "start": "node app.js"
   },
   "author": "Eduardo Torres (letadevs)",
   "license": "ISC",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "cors": "^2.8.5",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
     "express-validator": "^6.10.1",

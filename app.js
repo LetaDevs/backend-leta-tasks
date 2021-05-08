@@ -1,12 +1,15 @@
 import express from 'express';
 import router from './routes/router.js';
 import conectarBD from './config/db.js';
+import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config({path: 'variables.env'});
 
 const app = express();
 
 conectarBD();
+
+app.use(cors());
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json({extended: true}));
