@@ -25,9 +25,9 @@ los datos **Nombre**, **Email** y **Password** son requeridos.
 
 ### Confirmar cuenta
 
-**GET** <http://referer/confirmar-cuenta/:token>
+**POST** <http://referer/confirmar-cuenta/:token>
 
-Para confirmar la cuenta, se le enviará un correo al usuario con la url de confirmación, al obtener un **GET** desde esa url se validará el token asociado a ella y se activará la cuenta del usuario al que pertenezca dicho token.
+Para confirmar la cuenta, se le enviará un correo al usuario con un token de verificación, al obtener un **POST** desde este endpoint se validará el token asociado a el y se activará la cuenta del usuario al que pertenezca dicho token.
 
 ---
 
