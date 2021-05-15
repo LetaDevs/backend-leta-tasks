@@ -72,14 +72,13 @@ const solicitudResetPassword = async (req, res) => {
 
 	await usuario.save();
 
-	const url = `${process.env.FRONTEND_URL}/reset-password`;
+	const url = `${process.env.FRONTEND_URL}/reset-password/${token}`;
 
 	enviarEmail({
 		usuario,
 		subject: 'Solicitud reset password LETA-Tasks',
 		archivo: 'resetPassword',
 		url,
-		token,
 	});
 
 	res.status(200).json({code: 200, msg: 'se envió un correo con el token de reset'});
