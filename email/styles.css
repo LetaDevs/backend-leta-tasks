@@ -1,3 +1,9 @@
+a {
+	text-decoration: none;
+}
+.token-p {
+	font-weight: 700;
+}
 .token {
 	font-size: 20px;
 	font-weight: 700;
