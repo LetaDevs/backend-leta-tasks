@@ -37,7 +37,7 @@ Para confirmar la cuenta, se le enviará un correo al usuario con un token de ve
 
 El **email** del usuario será requerido en el body del request
 
-Al solicitar un reset de password, se le enviará un correo al usuario con la url de reset, al obtener un **POST** desde esa url se validará el token asociado a ella y se le permitirá al usuario modificar el password.
+Al obtener un **POST** desde este endpoint, se le enviará un correo al usuario con la url de reset.
 
 ---
 

@@ -81,7 +81,7 @@ const solicitudResetPassword = async (req, res) => {
 		url,
 	});
 
-	res.status(200).json({code: 200, msg: 'se envió un correo con el token de reset'});
+	res.status(200).json({code: 200, msg: 'se envió un correo con la url de reset'});
 };
 
 const validarTokenResetPassword = async (req, res) => {
