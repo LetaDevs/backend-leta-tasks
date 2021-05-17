@@ -67,6 +67,16 @@ Al enviar un **POST** a este endpoint se validará que el email ingresado esté 
 
 ---
 
+### Autenticar usuario
+
+**POST** <http://referer/api/v1/autenticacion>
+
+El campo **token** requerido en el body del request.
+
+Al enviar un **POST** a este endpoint se validará el jwt enviado en el body del request y se devolverán los datos del usuario
+
+---
+
 ### Crear nuevo proyecto
 
 **POST** <http://referer/api/v1/proyectos/crear-proyecto>

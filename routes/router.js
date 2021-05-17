@@ -1,7 +1,7 @@
 import express from 'express';
 import {check} from 'express-validator';
 import auth from '../middlewares/auth.js';
-import {iniciarSesion} from '../controllers/authController.js';
+import {iniciarSesion, autenticarUsuario} from '../controllers/authController.js';
 import {
 	confirmarCuenta,
 	crearCuenta,
@@ -42,6 +42,8 @@ router.post(
 );
 //iniciar sesion
 router.post('/api/v1/iniciar-sesion', [check('email', 'Email no válido').isEmail()], iniciarSesion);
+
+router.post('/api/v1/autenticacion', autenticarUsuario);
 
 // ------------------------------------ PROYECTOS --------------------------------------
 

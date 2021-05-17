@@ -39,4 +39,17 @@ const iniciarSesion = async (req, res) => {
 	}
 };
 
-export {iniciarSesion};
+const autenticarUsuario = async (req, res) => {
+	const {token} = req.body;
+
+	if (!token) res.status(400).json({errors: [{msg: 'se necesita un token para continuar'}]});
+
+	try {
+		const verificacion = jwt.verify(token, process.env.SECRET_STRING);
+		res.status(200).json({code: 200, usuario: verificacion.usuario});
+	} catch (error) {
+		res.status(404).json({errors: [{msg: 'token no válido'}]});
+	}
+};
+
+export {iniciarSesion, autenticarUsuario};
