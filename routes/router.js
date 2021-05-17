@@ -41,14 +41,7 @@ router.post(
 	guardarNuevoPassword
 );
 //iniciar sesion
-router.post(
-	'/api/v1/iniciar-sesion',
-	[
-		check('email', 'Email no válido').isEmail(),
-		check('password', 'El password debe tener minimo 6 caracteres').isLength({min: 6}),
-	],
-	iniciarSesion
-);
+router.post('/api/v1/iniciar-sesion', [check('email', 'Email no válido').isEmail()], iniciarSesion);
 
 // ------------------------------------ PROYECTOS --------------------------------------
 
