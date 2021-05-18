@@ -10,7 +10,7 @@ const auth = (req, res, next) => {
 		req.usuario = cifrado.usuario;
 		next();
 	} catch (error) {
-		res.status(401).json({errors: [{msg: 'no tienes permiso para realizar la solicitud'}]});
+		return res.status(401).json({errors: [{msg: 'no tienes permiso para realizar la solicitud'}]});
 	}
 };
 
