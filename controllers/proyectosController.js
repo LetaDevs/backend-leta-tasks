@@ -68,7 +68,7 @@ const obtenerProyectoUrl = async (req, res) => {
 	try {
 		const proyecto = await Proyectos.findOne({url});
 
-		if (proyecto.usuarioId !== req.usuario.id) return res.status(401).json({errors: [{msg: 'No autorizado'}]});
+		if (proyecto.usuarioId != req.usuario.id) return res.status(401).json({errors: [{msg: 'No autorizado'}]});
 
 		res.status(200).json({code: 200, proyecto});
 	} catch (error) {
