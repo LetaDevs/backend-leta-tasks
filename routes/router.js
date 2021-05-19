@@ -66,7 +66,7 @@ router.delete('/api/v1/proyectos/eliminar-proyecto/:proyectoid', auth, eliminarP
 router.get('/api/v1/proyectos/obtener-proyectos/:usuarioId', auth, obtenerProyectos);
 
 // obtener proyecto por url
-router.get('api/v1/proyectos/obtener-proyecto/:url', auth, obtenerProyectoUrl);
+router.get('/api/v1/proyectos/obtener-proyecto/:url', auth, obtenerProyectoUrl);
 
 // ------------------------------------ TAREAS -------------------------------------------
 
