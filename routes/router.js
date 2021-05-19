@@ -9,7 +9,13 @@ import {
 	solicitudResetPassword,
 	validarTokenResetPassword,
 } from '../controllers/usersController.js';
-import {crearProyecto, editarProyecto, eliminarProyecto, obtenerProyectos} from '../controllers/proyectosController.js';
+import {
+	crearProyecto,
+	editarProyecto,
+	eliminarProyecto,
+	obtenerProyectos,
+	obtenerProyectoUrl,
+} from '../controllers/proyectosController.js';
 import {cambiarEstadoTarea, crearTarea, editarTarea, eliminarTarea} from '../controllers/TareasController.js';
 
 const router = express.Router();
@@ -58,6 +64,9 @@ router.delete('/api/v1/proyectos/eliminar-proyecto/:proyectoid', auth, eliminarP
 
 //obtener proyectos
 router.get('/api/v1/proyectos/obtener-proyectos/:usuarioId', auth, obtenerProyectos);
+
+// obtener proyecto por url
+router.get('api/v1/proyectos/obtener-proyecto/:url', auth, obtenerProyectoUrl);
 
 // ------------------------------------ TAREAS -------------------------------------------
 

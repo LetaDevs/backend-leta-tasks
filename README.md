@@ -113,6 +113,14 @@ Al enviar un **GET** a este endpoint se validará la sesión del usuario mediant
 
 ---
 
+### Obtener proyecto por url
+
+**GET** <http://referer/api/v1/proyectos/obtener-proyecto/:url>
+
+Al enviar un **GET** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa se devolverá un json con el proyecto.
+
+---
+
 ### Crear tarea
 
 **POST** <http://referer/api/v1/tareas/crear-tarea?proyectoId={id}>

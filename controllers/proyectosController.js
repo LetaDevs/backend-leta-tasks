@@ -62,4 +62,18 @@ const obtenerProyectos = async (req, res) => {
 	res.status(200).json(proyectos);
 };
 
-export {crearProyecto, editarProyecto, eliminarProyecto, obtenerProyectos};
+const obtenerProyectoUrl = async (req, res) => {
+	const {url} = req.params;
+
+	try {
+		const proyecto = await Proyectos.findOne({url});
+
+		if (proyecto.usuarioId !== req.usuario.id) return res.status(401).json({errors: [{msg: 'No autorizado'}]});
+
+		res.status(200).json({code: 200, proyecto});
+	} catch (error) {
+		return res.status(404).json({errors: [{msg: 'Proyecto no encontrado'}]});
+	}
+};
+
+export {crearProyecto, editarProyecto, eliminarProyecto, obtenerProyectos, obtenerProyectoUrl};
