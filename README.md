@@ -156,3 +156,11 @@ Al enviar un **DELETE** a este endpoint se validará la sesión del usuario medi
 **PATCH** <http://referer/api/v1/tareas/estado-tarea/:tareaId>
 
 Al enviar un **PATCH** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa y la tarea le pertenece al usuario autenticado, se procederá a cambiar el estado de dicha tarea (de true a false y veceversa).
+
+---
+
+### Obtener tareas
+
+**GET** <http://referer/api/v1/tareas/obtener-tareas/:proyectoId>
+
+Al enviar un **GET** a este endpoint se validará la sesión del usuario mediante un jwt en los headers del request, si dicha validación es exitosa se devolverá un json con las tareas pertenecientes a dicho proyecto.

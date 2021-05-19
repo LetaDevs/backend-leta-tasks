@@ -16,7 +16,13 @@ import {
 	obtenerProyectos,
 	obtenerProyectoUrl,
 } from '../controllers/proyectosController.js';
-import {cambiarEstadoTarea, crearTarea, editarTarea, eliminarTarea} from '../controllers/TareasController.js';
+import {
+	cambiarEstadoTarea,
+	crearTarea,
+	editarTarea,
+	eliminarTarea,
+	obtenerTareas,
+} from '../controllers/TareasController.js';
 
 const router = express.Router();
 
@@ -81,5 +87,8 @@ router.delete('/api/v1/tareas/eliminar-tarea/:tareaId', auth, eliminarTarea);
 
 //cambiar estado tarea
 router.patch('/api/v1/tareas/estado-tarea/:tareaId', auth, cambiarEstadoTarea);
+
+// obtener tareas
+router.get('/api/v1/tareas/obtener-tareas/:proyectoId', auth, obtenerTareas);
 
 export default router;

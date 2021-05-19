@@ -83,4 +83,16 @@ const cambiarEstadoTarea = async (req, res) => {
 	}
 };
 
-export {crearTarea, editarTarea, eliminarTarea, cambiarEstadoTarea};
+const obtenerTareas = async (req, res) => {
+	const {proyectoId} = req.params;
+
+	const proyecto = await Proyectos.findById(proyectoId);
+
+	if (proyecto.usuarioId != req.usuario.id) return res.status(403).json({errors: [{msg: 'Usuario no autorizado'}]});
+
+	const tareas = await Tareas.find({proyectoId});
+
+	return res.status(200).json({tareas});
+};
+
+export {crearTarea, editarTarea, eliminarTarea, cambiarEstadoTarea, obtenerTareas};

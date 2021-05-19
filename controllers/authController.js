@@ -30,7 +30,7 @@ const iniciarSesion = async (req, res) => {
 			},
 		};
 
-		jwt.sign(payload, process.env.SECRET_STRING, {expiresIn: 3600}, (error, token) => {
+		jwt.sign(payload, process.env.SECRET_STRING, {expiresIn: 7200}, (error, token) => {
 			if (error) throw error;
 			res.json({token});
 		});
