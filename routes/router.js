@@ -66,7 +66,7 @@ router.post('/api/v1/proyectos/crear-proyecto', auth, crearProyecto);
 router.put('/api/v1/proyectos/editar-proyecto/:proyectoId', auth, editarProyecto);
 
 //eliminar proyecto
-router.delete('/api/v1/proyectos/eliminar-proyecto/:proyectoid', auth, eliminarProyecto);
+router.delete('/api/v1/proyectos/eliminar-proyecto/:proyectoId', auth, eliminarProyecto);
 
 //obtener proyectos
 router.get('/api/v1/proyectos/obtener-proyectos/:usuarioId', auth, obtenerProyectos);
