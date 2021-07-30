@@ -31,11 +31,11 @@ const router = express.Router();
 // crear cuenta
 router.post(
 	'/api/v1/crear-cuenta',
-	[
-		check('nombre', 'El nombre es obligatorio').not().isEmpty(),
-		check('email', 'Email no válido').isEmail(),
-		check('password', 'El password debe tener minimo 6 caracteres').isLength({min: 6}),
-	],
+	// [
+	// 	check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+	// 	check('email', 'Email no válido').isEmail(),
+	// 	check('password', 'El password debe tener minimo 6 caracteres').isLength({min: 6}),
+	// ],
 	crearCuenta
 );
 

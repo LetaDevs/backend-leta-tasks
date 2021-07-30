@@ -5,10 +5,10 @@ import enviarEmail from '../handlers/emailHandler.js';
 import {validationResult} from 'express-validator';
 
 const crearCuenta = async (req, res) => {
-	const errors = validationResult(req);
-	if (!errors.isEmpty()) {
-		return res.json(errors);
-	}
+	// const errors = validationResult(req);
+	// if (!errors.isEmpty()) {
+	// 	return res.json(errors);
+	// }
 
 	const {email} = req.body;
 
