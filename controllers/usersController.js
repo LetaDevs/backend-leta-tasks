@@ -5,11 +5,6 @@ import enviarEmail from '../handlers/emailHandler.js';
 import {validationResult} from 'express-validator';
 
 const crearCuenta = async (req, res) => {
-	// const errors = validationResult(req);
-	// if (!errors.isEmpty()) {
-	// 	return res.json(errors);
-	// }
-
 	const {email} = req.body;
 
 	const validarRegistro = await Usuarios.findOne({email});
@@ -17,7 +12,7 @@ const crearCuenta = async (req, res) => {
 
 	try {
 		let usuario = new Usuarios(req.body);
-		usuario.password = await bcrypt.hashSync(usuario.password, bcrypt.genSaltSync(10));
+		usuario.password = bcrypt.hashSync(usuario.password, bcrypt.genSaltSync(10));
 		const token = crypto.randomBytes(10).toString('hex');
 		usuario.token = token;
 
@@ -55,11 +50,6 @@ const confirmarCuenta = async (req, res) => {
 };
 
 const solicitudResetPassword = async (req, res) => {
-	const errors = validationResult(req);
-	if (!errors.isEmpty()) {
-		return res.json(errors);
-	}
-
 	const {email} = req.body;
 
 	let usuario = await Usuarios.findOne({email});
@@ -95,18 +85,13 @@ const validarTokenResetPassword = async (req, res) => {
 };
 
 const guardarNuevoPassword = async (req, res) => {
-	const errors = validationResult(req);
-	if (!errors.isEmpty()) {
-		return res.json(errors);
-	}
-
 	const {token} = req.params;
 
 	let usuario = await Usuarios.findOne({token});
 
 	if (!usuario) res.status(400).json({errors: [{msg: 'token no válido'}]});
 
-	usuario.password = await bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+	usuario.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
 	usuario.token = null;
 	usuario.tokenExpiracion = null;
 

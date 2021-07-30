@@ -6,9 +6,6 @@ import dotenv from 'dotenv';
 dotenv.config({path: 'variables.env'});
 
 const iniciarSesion = async (req, res) => {
-	const errors = validationResult(req);
-	if (!errors.isEmpty()) res.status(400).json(errors);
-
 	const {email, password} = req.body;
 
 	try {

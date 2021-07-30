@@ -29,31 +29,19 @@ const router = express.Router();
 // ------------------------------------------ USUARIOS -----------------------------------------------
 
 // crear cuenta
-router.post(
-	'/api/v1/crear-cuenta',
-	// [
-	// 	check('nombre', 'El nombre es obligatorio').not().isEmpty(),
-	// 	check('email', 'Email no válido').isEmail(),
-	// 	check('password', 'El password debe tener minimo 6 caracteres').isLength({min: 6}),
-	// ],
-	crearCuenta
-);
+router.post('/api/v1/crear-cuenta', crearCuenta);
 
 // confirmar cuenta
 router.post('/confirmar-cuenta/:token', confirmarCuenta);
 
 // reestablecer password
-router.post('/api/v1/reset-password', check('email', 'Email no válido').isEmail(), solicitudResetPassword);
+router.post('/api/v1/reset-password', solicitudResetPassword);
 // validar token de reset
 router.post('/api/v1/reset-password/validacion/:token', validarTokenResetPassword);
 // cambiar password
-router.post(
-	'/api/v1/reset-password/:token',
-	check('password', 'El password debe tener mínimo 6 caracteres').not().isEmpty(),
-	guardarNuevoPassword
-);
+router.post('/api/v1/reset-password/:token', guardarNuevoPassword);
 //iniciar sesion
-router.post('/api/v1/iniciar-sesion', [check('email', 'Email no válido').isEmail()], iniciarSesion);
+router.post('/api/v1/iniciar-sesion', iniciarSesion);
 
 router.post('/api/v1/autenticacion', autenticarUsuario);
 
