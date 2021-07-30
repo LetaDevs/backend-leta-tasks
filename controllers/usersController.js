@@ -25,13 +25,13 @@ const crearCuenta = async (req, res) => {
 
 		const url = `${process.env.FRONTEND_URL}/validar-token`;
 
-		// enviarEmail({
-		// 	usuario,
-		// 	subject: 'Confirma tu cuenta de LETA-Tasks',
-		// 	archivo: 'confirmarCuenta',
-		// 	url,
-		// 	token,
-		// });
+		enviarEmail({
+			usuario,
+			subject: 'Confirma tu cuenta de LETA-Tasks',
+			archivo: 'confirmarCuenta',
+			url,
+			token,
+		});
 
 		res.status(201).json({code: 201, msg: 'Usuario registrado con exito'});
 	} catch (error) {

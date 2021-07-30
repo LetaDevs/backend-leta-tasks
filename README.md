@@ -19,7 +19,15 @@
 
 **POST** <http://referer/api/v1/crear-cuenta>
 
-los datos **Nombre**, **Email** y **Password** son requeridos.
+se espera en el body del request un objeto con la siguiente estructura:
+
+```js
+  {
+    nombre: '',
+    email: '',
+    password: '',
+  }
+```
 
 ---
 
